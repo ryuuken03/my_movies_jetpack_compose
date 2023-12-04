@@ -43,6 +43,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 @Composable
 fun SetStatusBarColor(color: Color) {
     val systemUiController = rememberSystemUiController()

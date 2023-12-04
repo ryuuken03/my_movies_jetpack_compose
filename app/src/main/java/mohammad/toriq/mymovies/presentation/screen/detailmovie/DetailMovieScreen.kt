@@ -11,6 +11,7 @@ import android.view.WindowManager
 import android.widget.FrameLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -124,6 +125,10 @@ fun initDetailMovie(
     navController: NavController,
     detailMovieViewModel: DetailMovieViewModel,
     modifier: Modifier = Modifier) {
+
+    BackHandler {
+        navController.navigateUp()
+    }
     val showDialog =  remember { mutableStateOf(false) }
 
     var isLoading = detailMovieViewModel.state.value.isLoading

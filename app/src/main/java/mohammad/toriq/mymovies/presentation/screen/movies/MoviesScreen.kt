@@ -5,6 +5,7 @@ package mohammad.toriq.mymovies.presentation.screen.movies
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -75,7 +76,6 @@ fun MoviesScreen (
     title: String,
     moviesViewModel: MoviesViewModel = hiltViewModel()
 ){
-
     Log.d("OKCheck","id:"+id.toString())
     if(!moviesViewModel.isInit){
         moviesViewModel.isInit = true
@@ -97,6 +97,9 @@ fun initMovies(
     title: String,
     moviesViewModel: MoviesViewModel,
     modifier: Modifier = Modifier) {
+    BackHandler {
+        navController.navigateUp()
+    }
     Scaffold(
         modifier = Modifier
             .fillMaxSize(),

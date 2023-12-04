@@ -5,6 +5,7 @@ package mohammad.toriq.mymovies.presentation.screen.detailmovie
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -49,6 +50,9 @@ fun VideoScreen (
     id: String,
     title: String
 ){
+    BackHandler {
+        navController.navigateUp()
+    }
     val systemUiController: SystemUiController = rememberSystemUiController()
 
     systemUiController.isStatusBarVisible = false // Status bar

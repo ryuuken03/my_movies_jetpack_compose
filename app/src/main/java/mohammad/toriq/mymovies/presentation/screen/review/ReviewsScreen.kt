@@ -5,6 +5,7 @@ package mohammad.toriq.mymovies.presentation.screen.review
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -108,6 +109,9 @@ fun initReviews(
     title: String,
     reviewsViewModel: ReviewsViewModel,
     modifier: Modifier = Modifier) {
+    BackHandler {
+        navController.navigateUp()
+    }
     Scaffold(
         modifier = Modifier
             .fillMaxSize(),
